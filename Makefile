@@ -14,4 +14,4 @@ lint:
 	poetry run flake8 gendiff
 
 test:
-	poetry run test_file1_file2
+	poetry run gendiff.tests.test_file1_file2:main
