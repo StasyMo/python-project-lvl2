@@ -1,3 +1,6 @@
+install:
+	poetry install
+
 build:
 	poetry build
 
@@ -9,3 +12,6 @@ package-install:
 
 lint:
 	poetry run flake8 gendiff
+
+test:
+	poetry run test_file1_file2
