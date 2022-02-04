@@ -18,3 +18,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
+test_file1_file2 = "gendiff.tests.test_file1_file2:main"
