@@ -1,0 +1,19 @@
+name: linter_push
+on: push
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install poetry
+        run: |
+          pip install poetry
+          make install
+
+      - name: make_linter
+        run: |
+          make lint
