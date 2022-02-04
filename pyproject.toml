@@ -3,14 +3,14 @@ name = "hexlet-code"
 version = "0.1.0"
 description = ""
 authors = ["StasyMo <anmolodtsova@mail.ru>"]
+repository = "https://github.com/StasyMo/python-project-lvl2"
 packages = [
   { include = "gendiff" },
 ]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-
-[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
