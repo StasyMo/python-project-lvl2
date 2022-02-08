@@ -1,5 +1,4 @@
 import argparse
-import json
 
 
 def main():
@@ -11,9 +10,9 @@ def main():
     return generate_diff(args.first_file, args.second_file)
 
 
-def generate_diff(first_file, second_file):
-    first_file = json.load(open(first_file))
-    second_file = json.load(open(second_file))
+def generate_diff(first_file, second_file, f_opener):
+    first_file = f_opener(first_file)
+    second_file = f_opener(second_file)
     sorted_dict_keys_1 = sorted(first_file.keys())
     sorted_dict_keys_2 = sorted(second_file.keys())
     file1_dict = {}
@@ -30,7 +29,7 @@ def generate_diff(first_file, second_file):
                    for item in file1_dict]
     diff_list_2 = [make_diff_list(file2_dict[item], item, second_file[item])
                    for item in file2_dict]
-    return '\n'.join(diff_list_1 + diff_list_2)
+    return '\n'.join(['{'] + diff_list_1 + diff_list_2 + ['}'])
 
 
 def make_diff_list(sign, item, value):
